@@ -47,4 +47,8 @@
 2. **What is the sealing operation in trusted computing environment?** [2021/01/xx - 2021/09/xx]
 
 ## Privacy (GDPR)
-1. **GDPR: Data minimization, data accuracy, storage limitation.** [2021/02/xx]
+1. **GDPR: Data minimization, data accuracy, storage limitation.** [2021/02/xx] \
+General Data Protection Regulations (GDPR, a 2018 personal data regulation in the European Union (EU)) specifies that:
+    - *data minimization*: data shall be adequate, relevant and limited to what is necessary to the purposes for which they are processed. Moreover, if specific data are collected, it should be able to demonstrate that those data are necessary and fundamental for the offered service. As a guideline: do not exceed in data collection.
+    - *data accuracy*: data shall be accurate and, if necessary, kept up to date. This is definitely not easy. As an example, if the home address of a user changes, do we have the right to keep stored the old address? There should be a way to keep data up to date once collected.
+    - *storage limitation*: here limitation refers to limitation in time. Data should be kept in a form which permits identification of subjects for no longer than it is necessary. As an example, if data are collected after buying a flight ticket, do we have the right to keep stored that personal information after the flight has ended? Data should be labelled with an expiration data and an automatic procedure should be implemented to remove old data. 
