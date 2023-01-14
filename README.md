@@ -44,7 +44,8 @@
 ## Trusted Computing
 1. **What is remote attestation in trusted computing environment?** [2022/01/27 - 2022/04/07 - 2021/01/xx]
 
-2. **What is the sealing operation in trusted computing environment?** [2021/01/xx - 2021/09/xx]
+2. **What is the sealing operation in trusted computing environment?** [2021/01/xx - 2021/09/xx] \
+In Trusted Computing, one of the features of a *Trusted Platform Module* (*TPM*) is the capability *to seal* specific data to the hardware and software environment. *Sealing* is an operation that encrypts data based not only on the data itself, but also on the configuration of the hardware modules and the active softwares in that specific time (named *state*). In this way, the *unsealing* reverse operation (decryption) can be performed if and only if the *state* of the computer at decryption time is the same at encryption time. Therefore, a malicious software running will prevent the unsealing operation due to the fact that the state is different than the one at encryption time.
 
 ## Privacy (GDPR)
 1. **GDPR: Data minimization, data accuracy, storage limitation.** [2021/02/xx] \
