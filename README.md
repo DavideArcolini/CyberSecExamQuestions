@@ -42,7 +42,10 @@
 1. **What is slack space? Why is relevant in forensic analysis?** [2021/01/xx - 2021/09/xx]
 
 ## Trusted Computing
-1. **What is remote attestation in trusted computing environment?** [2022/01/27 - 2022/04/07 - 2021/01/xx]
+1. **What is remote attestation in trusted computing environment?** [2022/01/27 - 2022/04/07 - 2021/01/xx] \
+In Trusted Computing, *Remote Attestation* is a key feature that allows a remote verifier to evaluate the trustworthiness of a specific computer. In that computer, a TPM is storing the measured hash value (1st stage boot loader, BIOS/UEFI, OS, apps, etc...) in the PCRs. Eventually, the remote verifier will sent a challenge (i.e. a nonce) to the targeted computer, which will responds with the list of PCRs value, digitally signed with *TPM DevID* (*device identifier*). The verifier will performs two operations:
+    - it will check that the signature is valid, so that the values have not been tampered with;
+    - it will check that the measured PCRs values are valid, compared with the so-called *Golden Values* (pre-computed values which are known to be valid).
 
 2. **What is the sealing operation in trusted computing environment?** [2021/01/xx - 2021/09/xx] \
 In Trusted Computing, one of the features of a *Trusted Platform Module* (*TPM*) is the capability *to seal* specific data to the hardware and software environment. *Sealing* is an operation that encrypts data based not only on the data itself, but also on the configuration of the hardware modules and the active softwares in that specific time (named *state*). In this way, the *unsealing* reverse operation (decryption) can be performed if and only if the *state* of the computer at decryption time is the same at encryption time. Therefore, a malicious software running will prevent the unsealing operation due to the fact that the state is different than the one at encryption time.
