@@ -44,7 +44,8 @@ In 802.11i, the initial authentication is performed either using a Pre-Shared Ke
 1. **Delegated authentication model? Describe 2 possible scenarios. Describe the problems.** [2021/02/xx - 2021/09/xx]
 
 ## Forensic Analysis
-1. **What is slack space? Why is relevant in forensic analysis?** [2021/01/xx - 2021/09/xx]
+1. **What is slack space? Why is relevant in forensic analysis?** [2021/01/xx - 2021/09/xx] \
+Slack space is a term used to describe the unused or available space within a computer's file system. It occurs when a file is smaller than the smallest allocation unit (such as a cluster or block) used by the file system, which means that the file does not fill the entire allocation unit. The remaining space in the allocation unit is considered slack space. Slack space is important for a Forensic Analyst since it can be analyzed to recover deleted files (e.g., by using tools like `foremost`).
 
 ## Trusted Computing
 1. **What is remote attestation in trusted computing environment?** [2022/01/27 - 2022/04/07 - 2021/01/xx] \
