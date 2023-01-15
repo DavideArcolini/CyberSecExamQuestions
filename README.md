@@ -33,7 +33,12 @@
 2. **Three possible types of XML Digital Signatures.** [2022/04/07]
 
 ## Wi-Fi Security
-1. **Define EAP-TLS, EAP-TTLS and PEAP.** [2022/04/07]
+1. **Define EAP-TLS, EAP-TTLS and PEAP.** [2022/04/07] \
+In 802.11i, the initial authentication is performed either using a Pre-Shared Key (PSK) or by following a EAP exchange through 802.1X (known as EAPOL, which requires the presence of an authentication server). Extensible Authentication Protocol (EAP) is an authentication framework (not an authentication mechanism) widely adopted in Wireless LAN. Three of a long list of possible methods are:
+    - *EAP-TLS*: it is the original, standard wireless LAN EAP authentication protocol. It uses TLS to perform mutual authentication between the Authentication Server (AS) and the station (STA), which means that the device trying to connect to the Access Point (AP) must have a X.509 Certificate (i.e. a key-pair). For this reasons, although it is one of the strongest method, it is not so common.
+    - *EAP-TTLS*: in EAP-Tunneled TLS, the client can (but does not have to) be authenticated via a CA-signed PKI certificate to the server. This greatly simplifies the setup procedure since a certificate is not needed on every client. The AP acts as a pass-through device and a TLS channel is created between the STA and the AS. After the server is securely authenticated to the client via its CA certificate and optionally the client to the server, the server can then use the established secure connection ("tunnel") to authenticate the client with various type of STA authentication (EAP or others).
+    - *PEAP*: exactly like EAP-TTLS, but in this case, once the tunnel has been crated, only EAP methods of client authentication are valid.
+
 
 ## Electronic identity (eIDAS and SPID)
 1. **Delegated authentication model? Describe 2 possible scenarios. Describe the problems.** [2021/02/xx - 2021/09/xx]
