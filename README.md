@@ -27,10 +27,14 @@
 
 4. **What are possible attacks on OCSP protocol?** [2021/02/xx - 2021/09/xx]
 
-## XML Digital Signatures
-1. **What is PEP and PDP? Make an example of real implementation** [2022/01/27 - 2021/01/xx]
+5. **What is PEP and PDP? Make an example of real implementation** [2022/01/27 - 2021/01/xx]
 
-2. **Three possible types of XML Digital Signatures.** [2022/04/07]
+## XML and JSON Digital Signatures and Encryption
+1. **Three possible types of XML Digital Signatures.** [2022/04/07] \
+XML Signature Syntax and Processing defines an XML syntax for digital signatures. There are three possible type of signatures:
+    - *Detached signature*: it is used to sign a resource outside its containing XML document. In this case, the `signedInfo` fields of the XML document presents an external URI (e.g. `reference=http://domain.com/external_resource.data`) in the `reference` field.
+    - *Enveloping signature*: it contains the signed data within itself. In this case, the `signedInfo` fields of the XML document presents a self referenced URI (`reference=#id`) in the `reference` field.
+    - *Enveloped signature*: it is used to sign some part of its containing document. In this case, the `signedInfo` fields of the XML document presents a null URI (`reference=''`) in the `reference` field.
 
 ## Wi-Fi Security
 1. **Define EAP-TLS, EAP-TTLS and PEAP.** [2022/04/07] \
