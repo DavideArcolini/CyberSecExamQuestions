@@ -11,12 +11,19 @@
 9. [Privacy (GDPR)](#privacy-gdpr)
 
 ## TLS
-1. **What is perfect forward secrecy? What is the problem if the protocol does not have it? Show an example of implementation.** [2022/01/27 - 2022/04/07 - 2021/01/xx - 2021/09/xx]
+1. **What is perfect forward secrecy? What is the problem if the protocol does not have it? Show an example of implementation.** [2022/01/27 - 2022/04/07 - 2021/01/xx - 2021/09/xx] \
+Perfect Forward Secrecy (PFS) is a feature of a Key Agreement Protocol that assures that the compromise of long-term secrets does not compromise past exchanged session-keys. For instance, in TLS, the compromise of the server private key (i.e., the long-term secret) does not allow an attacker to decrypt any recorded past sessions. In TLS, this is typically performed through Ephemeral Diffie-Hellman (EDH) exchange: whereas the key-pairs of the two peers are uniquely used for authentication, a new ephemeral key is generated for each connection. 
 
-2. **TLS client authentication? How it works? Advantages and disadvantages?** [2021/02/xx]
+2. **TLS client authentication? How it works? Advantages and disadvantages?** [2021/02/xx] \
+Eventually, in a TLS handshake, the server may require the client to provide a certificate for authentication, by sending a `Client Certificate Request`. This message, sent by the server after the `Server Hello` and the Server certificates, depending on the implementations, may contain a list of allowed certificate types and a list of trusted CAs. The client will the provide its certification chain, an explicit signature over all the handshake will be verified and then the communication continues as normal. Client authentication provides strong security and a reduced attack surface, moreover, it can be used to restrict access to a particular service. On the other hand, it adds complexity to the TLS Handshake process, increasing latency. It is typically not that feasible for the client, which is required to have a Certificate.
 
 ## SSH
-1. **What are available types of peer authentication in SSH and which techniques do they use?** [2022/01/27 - 2021/02/xx - 2021/09/xx]
+1. **What are available types of peer authentication in SSH and which techniques do they use?** [2022/01/27 - 2021/02/xx - 2021/09/xx] \
+In SSH, server authentication and client authentication are performed through two different protocols:
+    - *Server authentication* is performed by the Transport Layer Protocol which runs directly on top of TCP. In this protocol, Diffie-Hellman (DH) is used to exchange keys. The Diffie-Hellman (DH) key exchange provides a shared secret that cannot be determined by either party alone. The key exchange is combined with a *signature* with the host key to provide *server authentication*. There is no PKI so the client locally stores the public keys of the servers; typically each user stores them in its home directory `~/.ssh/known_host` where there are couples server name and public key. 
+    - *Client authentication* is performed by the User Authentication Protocol, which runs on top of the Transport Layer Protocol. The two main methods of client authentications are:
+        - *Password Authentication Method*: compulsory at minimum with username and password (unlike TLS). Note that even though the cleartext password is transmitted in the packet, the entire packet is encrypted by the transport layer.
+        - *Public Key Authentication Method*: optionally it is possible to use asymmetric challenge-response; the problem again is that there are no certificates, so the public key of the authorized client is stored by the server in a file `~/local_user/.ssh/authorized_keys`.
 
 ## X.509 Certificates
 1. **When I receive a document digitally signed with a certificate and its certificate chain, what are all the steps to check if it is a valid document? How can I assess information about certificate status without any external knowledge?** [2022/01/27 - 2022/04/07 - 2021/01/xx]
