@@ -34,8 +34,6 @@ In SSH, server authentication and client authentication are performed through tw
 
 4. **What are possible attacks on OCSP protocol?** [2021/02/xx - 2021/09/xx]
 
-5. **What is PEP and PDP? Make an example of real implementation** [2022/01/27 - 2021/01/xx]
-
 ## XML and JSON Digital Signatures and Encryption
 1. **Three possible types of XML Digital Signatures.** [2022/04/07] \
 XML Signature Syntax and Processing defines an XML syntax for digital signatures. There are three possible type of signatures:
@@ -52,7 +50,16 @@ In 802.11i, the initial authentication is performed either using a Pre-Shared Ke
 
 
 ## Electronic identity (eIDAS and SPID)
-1. **Delegated authentication model? Describe 2 possible scenarios. Describe the problems.** [2021/02/xx - 2021/09/xx]
+1. **Delegated authentication model? Describe 2 possible scenarios. Describe the problems.** [2021/02/xx - 2021/09/xx] \
+Delegated authentication is an authentication schema in which a Relying Party (more often defined a Service Provider, i.e. a Web application, a Software, etc...) delegate the end-user authentication to an external entity, called the Authentication Server (more ofter referred to as Identity Provider, or IdP). The AS issues a security token, or ticket, determining the successful identify of the end-user, which is exchanged with the Service Provider. This exchange can be:
+    - *Push ticket*: the AS directly sends the token to the service provider, without relying to the end-user. Major problems: correct configuration of firewalls to allow incoming traffic at the RP (maybe whitelisting AS?). 
+    - *Indirect push ticket*: the AS sends the token to the end-user, which will be in charge of giving that to the relying party. Major problems: protect the token and trust the client (typically bad).
+    - *Pull ticket*: the AS sends to the end-user a reference to the token itself. The end-user will sends the reference to the relying party which will "pull" the token from the AS. Major problems: configuring network traffic between AS and RP, trust the client with the reference.
+
+
+2. **What is PEP and PDP? Make an example of real implementation** [2022/01/27 - 2021/01/xx] \
+Policy Enforcement Point (PEP) and Policy Decision Point (PDP) are two entities that regulate accesses to resources in a Policy-Based Network system. When an end-user wants to access a specific resource, the PEP sends the request to the PDP (typically through a context handler, which will convert the request, along with the information obtained from the Policy Information Point (PIP), to/from XACML requests). The PDP evaluates the request based on the policies retrieved from the Policy Access Point (PAP) and returns the granted/denied response to the PEP. 
+Examples may include microservices architectures, network architectures and others. 
 
 ## Forensic Analysis
 1. **What is slack space? Why is relevant in forensic analysis?** [2021/01/xx - 2021/09/xx] \
